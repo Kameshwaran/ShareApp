@@ -8,8 +8,8 @@ div.img
   margin: 5px;
   padding: 5px;
   border: 2px solid black;
-  height: 200px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
   float: left;
   text-align: center;
 }	
@@ -17,15 +17,15 @@ div.img img
 {
   display: inline;
   margin: 5px;
-  height:152px;
-  width:178px;
+  height:182px;
+  width:200px;
   border: 1px solid #ffffff;
 }
 div.img a:hover img {border: 1px solid #0000ff;}
-div.desc
+div.descrip
 {
   text-align: center;
   font-weight: normal;
-  width: 120px;
+  width: 200px;
   margin: 5px;
 }
