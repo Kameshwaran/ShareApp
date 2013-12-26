@@ -1,0 +1,49 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.form{
+	height:500px;
+	width:500px; 
+	margin-left:435px;
+}
+.list{
+	height:100%;
+	width:500px;
+	margin-left:100px;
+	float:left;
+}
+.add_item{
+	height:400px;
+	width:400px;
+	float:left;
+	margin-left:200px;
+	margin-top:100px;
+}
+.item-img{
+	height:100px;
+	width:100px;
+}
+.inner-items{
+	float:left;
+	padding:20px;
+}
+.item-in{
+	float:left;
+	height:100%;
+	width:250px;
+	padding:20px;
+}
+p{
+	text-align:justify;
+}
+h4{
+	text-align:center;
+}
+a{
+	text-decoration:none;
+	cursor:pointer;
+}
+a:hover{
+	text-decoration:none;
+	cursor:pointer;
+}

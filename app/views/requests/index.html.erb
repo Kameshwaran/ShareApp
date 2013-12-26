@@ -1,0 +1,45 @@
+<div class="form">
+  <center><h2>My requests<br></h2></center>
+  <% if @requests.any? %>
+    <table class="table table-striped">
+      <tr>
+        <th>Item</th>
+        <th>Requester</th>
+        <th>Message</th>
+        <th>Accept</th>
+        <th>Reject</th>
+      </tr>
+     
+      <% @requests.each do |request| %>
+        <tr>
+          <td><%= request.item_id %></td>
+          <td><%= request.requester.name %></td>
+          <td><%= request.message %></td>
+          <td><%= link_to 'Accept', user_request_accept_path(current_user,request), :method=>:get,class:"btn btn-success btn-sm" %></td>
+          <td><%= link_to 'Reject', user_request_path(current_user,request), :method=>:delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger btn-sm"  %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <center><p><br>No Pending requests found!</p></center>
+  <% end %>
+  <hr>
+  <center><h2>Accepted requests</h2></center>
+  <% if @accepted_requests.any? %>
+    <table class="table table-striped">
+      <tr>
+        <th>Requested Item</th>
+        <th>Approved By</th>
+      </tr>
+     
+      <% @accepted_requests.each do |request| %>
+        <tr>
+          <td><%= request.item.name %></td>
+          <td><%= request.accepter.name %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <center><p><br>No Accepted Requests found!</p></center>
+  <% end %>
+</div>

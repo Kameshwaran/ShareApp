@@ -1,0 +1,46 @@
+<div class="list">
+  <h1>My Items</h1><br>
+  <% if @items.any? %>
+    <table class="table table-striped">
+      <tr>
+        <th>Item</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+     
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= link_to 'View', user_item_view_path(current_user,item), :method=>:get, class:"btn btn-info btn-sm" %></td>
+          <td><%= link_to 'Edit', edit_user_item_path(current_user,item), :method=>:get, class:"btn btn-primary btn-sm" %></td>
+          <td><%= link_to 'Delete', user_item_path(current_user,item), :method=>:delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger btn-sm" %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <p>No Items found!</p>
+  <% end %>
+</div>
+<div class="add_item">
+  <center><h4>New Item<h4></center>
+  <%= form_for :item, :url => user_items_path, :html=>{:multipart=>true} ,:method => :post do |f| %>
+    <div class="name form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name ,class: "form-control" %>
+    </div>
+    <div class="desc form-group">
+      <%= f.label :description %>
+      <%= f.text_area :desc ,class: "form-control" %>
+    </div>
+    <div class="image form-group">
+      <%= f.file_field :image ,class: "form-control"%>
+    </div>
+    <div class="user form-group">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+    <div class="submit form-group">
+      <%= f.submit "Create" ,class: "btn btn-success" %>
+    </div>
+  <% end %>
+</div>

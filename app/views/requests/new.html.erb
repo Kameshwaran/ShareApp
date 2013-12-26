@@ -1,0 +1,20 @@
+<div class="form">
+  <%= form_for :request, :url => user_requests_path, :method => :post do |f| %>
+    <div class="desc form-group">
+      <center><h2>Send Message</h2></center>
+    </div>
+    <div class="desc form-group">
+      <%= f.label :message %>
+      <%= f.text_area :message ,class: "form-control" %>
+    </div>
+    <div class="user">
+      <%= f.hidden_field :requester_id, :value => current_user.id %>
+      <%= f.hidden_field :accepter_id, :value =>@accepter.id %>
+      <%= f.hidden_field :status, :value =>true %>
+      <%= f.hidden_field :item_id, :value => @search_item.id %>
+    </div>
+    <div class="submit form-group">
+      <center><%= f.submit "Submit", class: "btn btn-info" %></center>
+    </div>
+  <% end %>
+</div>

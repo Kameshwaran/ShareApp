@@ -1,0 +1,19 @@
+<div class="form"  >
+  <center><h2>Edit Item</h2></center>
+  <%= form_for :item, :url =>user_item_path , :method => :put do |f| %>
+    <div class="name form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name,:value => @item.name,class: "form-control" %>
+    </div>
+    <div class="desc form-group">
+      <%= f.label :description %>
+      <%= f.text_area :desc, :value => @item.desc,class: "form-control" %>
+    </div>
+    <div class="user form-group">
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+    <div class="submit">
+      <%= f.submit "Submit" ,class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div> 
