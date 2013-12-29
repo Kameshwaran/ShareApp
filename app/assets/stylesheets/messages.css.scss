@@ -1,0 +1,39 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content{
+	width:100%;
+	height:100%;
+}
+.content-child{
+	float:left;
+	padding-left:20px;
+	margin-left:100px;
+	padding-right:20px;
+}
+.side-content{
+	height:auto;
+	width:300px;
+	border:2px solid green;
+}
+.main-content{
+	height:400px;
+	width:700px;
+	border:2px solid green;
+}
+.name-list{
+	padding:10px;
+	list-style-type:none;
+}
+.nav-tabs{
+	min-height:42px;
+}
+.tab-content{
+	min-height:300px;
+	max-height:300px;
+}
+.tab-pane{
+	max-height:250px;
+	overflow:auto;
+}

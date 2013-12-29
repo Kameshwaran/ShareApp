@@ -12,7 +12,7 @@
      
       <% @requests.each do |request| %>
         <tr>
-          <td><%= request.item_id %></td>
+          <td><%= request.item.name %></td>
           <td><%= request.requester.name %></td>
           <td><%= request.message %></td>
           <td><%= link_to 'Accept', user_request_accept_path(current_user,request), :method=>:get,class:"btn btn-success btn-sm" %></td>
@@ -30,12 +30,14 @@
       <tr>
         <th>Requested Item</th>
         <th>Approved By</th>
+        <th>Return</th>
       </tr>
      
       <% @accepted_requests.each do |request| %>
         <tr>
           <td><%= request.item.name %></td>
           <td><%= request.accepter.name %></td>
+          <td><%= link_to 'Return', user_request_path(current_user,request), :method=>:delete, class:"btn btn-danger btn-sm"  %></td>
         </tr>
       <% end %>
     </table>

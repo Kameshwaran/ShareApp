@@ -5,9 +5,10 @@
     <a class="navbar-brand logo">Welcome <%= current_user.name %>!</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-left:850px;">
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-left:800px;">
     <ul class="nav navbar-nav  nav-item1">
       <li><%= link_to 'Home',home_index_path, :method=>:get %></li>
+      <li><%= link_to 'Messages',user_messages_path(current_user), :method=>:get %></li>
       <li><%= link_to 'My Items',user_items_path(current_user), :method=>:get %></li>
       <li><%= link_to 'Requests',user_requests_path(current_user), :method=>:get %>
         <% unseen_requests = Request.where(accepter: current_user,status: true).count + Request.where(requester: current_user,status: false).count %>

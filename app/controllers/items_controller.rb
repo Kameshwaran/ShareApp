@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
 	
 	def create
-  	Item.add(item_params) 
+  	@item = Item.add(item_params) 
   	redirect_to user_items_path(current_user)
 	end
 
 	def index
+		@item = Item.new
 		@items = current_user.items
 	end
 
@@ -16,8 +17,8 @@ class ItemsController < ApplicationController
 		@items = @search.results
 	end
 
-	def view
-		@item = Item.find(params[:item_id])
+	def show
+		@item = Item.find(params[:id])
 	end
 	
 	def edit
@@ -36,6 +37,6 @@ class ItemsController < ApplicationController
 	end
 	private
 	def item_params
-		params.require(:item).permit(:name,:desc,:image,:user_id)
+		params.require(:item).permit(:name,:desc,:image,:user_id,:availability)
 	end
 end

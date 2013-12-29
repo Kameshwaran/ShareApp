@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
-
   belongs_to :user
+  has_many :requests
+  validates :name,:image,:desc, presence: true
   mount_uploader :image, ImageUploader
  	searchable  do
  		text :name,:desc
@@ -8,6 +9,7 @@ class Item < ActiveRecord::Base
  	def self.add(hash)
   	item = Item.new(hash)
   	item.save
+    item
   end
   
   def modify!(hash)

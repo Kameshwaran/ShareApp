@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226085416) do
+ActiveRecord::Schema.define(version: 20131227105426) do
 
   create_table "images", force: true do |t|
     t.string   "description"
@@ -27,9 +27,21 @@ ActiveRecord::Schema.define(version: 20131226085416) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
+    t.boolean  "availability"
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id"
+
+  create_table "messages", force: true do |t|
+    t.text     "content"
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["receiver_id"], name: "index_messages_on_receiver_id"
+  add_index "messages", ["sender_id"], name: "index_messages_on_sender_id"
 
   create_table "requests", force: true do |t|
     t.string   "message"

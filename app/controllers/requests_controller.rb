@@ -22,7 +22,7 @@ class RequestsController < ApplicationController
 
 	def destroy
   	request = Request.find(params[:id])
-  	request.delete
+  	request.delete!
   	redirect_to user_requests_path(current_user)
 	end
 	private

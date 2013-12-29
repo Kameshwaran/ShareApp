@@ -12,7 +12,7 @@
       <% @items.each do |item| %>
         <tr>
           <td><%= item.name %></td>
-          <td><%= link_to 'View', user_item_view_path(current_user,item), :method=>:get, class:"btn btn-info btn-sm" %></td>
+          <td><%= link_to 'View', user_item_path(current_user,item), :method=>:get, class:"btn btn-info btn-sm" %></td>
           <td><%= link_to 'Edit', edit_user_item_path(current_user,item), :method=>:get, class:"btn btn-primary btn-sm" %></td>
           <td><%= link_to 'Delete', user_item_path(current_user,item), :method=>:delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger btn-sm" %></td>
         </tr>
@@ -38,9 +38,21 @@
     </div>
     <div class="user form-group">
       <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :availability, :value => true %>
     </div>
     <div class="submit form-group">
       <%= f.submit "Create" ,class: "btn btn-success" %>
     </div>
   <% end %>
+      <% if @item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@item.errors.count, "error") %> prohibited
+            this item from being saved:</h2>
+          <ul>
+          <% @item.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 </div>

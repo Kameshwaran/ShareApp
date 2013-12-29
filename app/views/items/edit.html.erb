@@ -12,6 +12,9 @@
     <div class="user form-group">
       <%= f.hidden_field :user_id, :value => current_user.id %>
     </div>
+    <div class="image form-group">
+      <%= f.file_field :image ,:value => @item.image,class: "form-control"%>
+    </div>
     <div class="submit">
       <%= f.submit "Submit" ,class: "btn btn-default" %>
     </div>

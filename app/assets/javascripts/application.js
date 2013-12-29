@@ -15,7 +15,3 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function(){
-	$("#my_options").popover();
-});

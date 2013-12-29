@@ -11,7 +11,10 @@ class Request < ActiveRecord::Base
 
   def delete!
   	request = Request.find(self.id)
+    item = request.item
   	if request.destroy
+      item.availability = true
+      item.save
   		true
   	else
   		raise "Item cannot be deleted."
@@ -30,6 +33,9 @@ class Request < ActiveRecord::Base
 
   def accept!
   	request = Request.find(self.id)
+    item = request.item
+    item.availability = false
+    item.save
   	request.status = false
   	request.save
   end

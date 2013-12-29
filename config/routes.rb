@@ -1,5 +1,6 @@
 ShareApp::Application.routes.draw do
   devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get '/home/index', :controller => 'home', :action => 'index'
@@ -11,6 +12,8 @@ ShareApp::Application.routes.draw do
     resources :requests do
       get 'accept', :controller =>'requests',:action => 'accept'
     end
+    resources :messages
+    post '/messages/display',:controller=>'messages',:action => 'display'
   end
   # You can have the root of your site routed with "root"
   root 'home#index'
