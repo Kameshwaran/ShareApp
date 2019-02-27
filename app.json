@@ -1,0 +1,7 @@
+{
+  "name": "CB share app",
+  "description": "A simple rails app to test one-click heroku deployment",
+  "repository": "https://github.com/Kameshwaran/ShareApp",
+  "logo": "",
+  "keywords": ["rails", "ruby", "sqlite"]
+}
