@@ -24,7 +24,6 @@ gem 'carrierwave'
 # Use jquery as the JavaScript library
 gem 'devise'
 gem 'jquery-rails'
-gem 'debugger'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'kaminari'
